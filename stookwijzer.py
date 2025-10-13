@@ -2,6 +2,7 @@ import requests
 from datetime import datetime, timedelta
 import pytz
 import pandas as pd
+import os
 
 def stookwijzer(lat: float, lon: float):
     """Haalt Stookwijzer-advies en 4 voorspellingen op (0h, +6h, +12h, +18h) voor opgegeven coördinaten."""
