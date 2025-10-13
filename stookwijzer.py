@@ -68,3 +68,14 @@ def stookwijzer(lat: float, lon: float):
 
     # --- Resultaat als DataFrame teruggeven ---
     return pd.DataFrame(forecast)
+
+if __name__ == "__main__":
+    LAT, LON = 52.089770561127374, 5.109876746789877
+    df = stookwijzer(LAT, LON)
+    if df is not None:
+        csv_file = "stookwijzer_output.csv"
+        # If file exists, append without header, else write with header
+        if os.path.isfile(csv_file):
+            df.to_csv(csv_file, mode='a', header=False, index=False)
+        else:
+            df.to_csv(csv_file, mode='w', header=True, index=False)
