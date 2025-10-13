@@ -2,24 +2,32 @@ name: Stookwijzer Twice Daily
 
 on:
   schedule:
-    - cron: '0 10,18 * * *'
+    - cron: '0 8,18 * * *'  # 10:00 en 20:00 NL tijd (UTC+2)
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   run_stookwijzer:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
+
       - name: Install dependencies
         run: pip install requests pytz pandas
+
       - name: Run script and append output
         run: python stookwijzer.py
-      - name: Commit new data
+
+      - name: Commit and push new data
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
