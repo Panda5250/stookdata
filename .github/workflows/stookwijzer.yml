@@ -1,4 +1,4 @@
-name: Stookwijzer Twice Daily
+name: stookwijzer_twice_daily
 
 on:
   schedule:
