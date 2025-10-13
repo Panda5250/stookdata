@@ -2,7 +2,7 @@ name: Stookwijzer Twice Daily
 
 on:
   schedule:
-    - cron: '0 8,18 * * *'  # 10:00 en 20:00 NL tijd (UTC+2)
+    - cron: '0 8,19 * * *'  # 10:00 en 20:00 NL tijd (UTC+2)
   workflow_dispatch:
 
 permissions:
